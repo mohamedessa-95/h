@@ -1,0 +1,35 @@
+{
+  "name": "law-office-app",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "build": "electron-builder",
+    "storage:check": "node storage-check.js"
+  },
+  "devDependencies": {
+    "electron": "latest",
+    "electron-builder": "latest"
+  },
+  "build": {
+    "appId": "com.law.office",
+    "productName": "مكتب المحاماة",
+    "win": {
+      "target": "nsis",
+      "arch": [
+        "x64"
+      ]
+    }
+  },
+  "lawOfficeStorage": {
+    "engine": "sqlite",
+    "database": "storage/office.sqlite",
+    "documents": "storage/documents",
+    "backups": "storage/backups",
+    "note": "Unified local storage prepared; runtime migration must preserve existing data before first production use."
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "archiver": "^7.0.1",
+    "adm-zip": "^0.5.16"
+  }
+}
